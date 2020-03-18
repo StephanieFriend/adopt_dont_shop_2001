@@ -1,5 +1,10 @@
-<h1>Welcome To Pet Shop</h1>
+<h1>Friend's Pet Shop</h1>
 
 <% @shelters.each do |shelter| %>
   <h2><%= shelter.name %></h2>
+
+  <p>
+    <%= shelter.address %><br/>
+    <%= shelter.city%>, <%= shelter.state %> <%= shelter.zip %>
+  </p>
 <% end %>
