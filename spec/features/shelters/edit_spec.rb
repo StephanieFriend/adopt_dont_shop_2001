@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
     describe 'When I visit the shelter show page' do
       it 'I can update a shelter' do
         feline_shelter = Shelter.create(name: "Feline Rescue",
