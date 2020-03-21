@@ -1,0 +1,11 @@
+<a href="/shelters">Home Page</a>
+
+<h1><%= @pet.name %></h1>
+
+<p>
+  <%= image_tag @pet.image, style: "max-height: 200px; max-width: 200px" %><br/>
+  Description: <%= @pet.description %><br/>
+  Age: <%= @pet.approximate_age %><br/>
+  Gender: <%= @pet.sex %><br/>
+  Available(Y/N): <%= @pet.adoptable %>
+</p>
