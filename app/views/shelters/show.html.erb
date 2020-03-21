@@ -7,5 +7,13 @@
   <%= @shelter.city%>, <%= @shelter.state %> <%= @shelter.zip %>
 </p>
 
+<%= link_to 'Create Pet', "/shelters/#{@shelter.id}/pets/new" %><br/>
 <a href="/shelters/<%= @shelter.id %>/edit">Edit</a><br/>
-<%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %>
+<%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %><br/><br/>
+
+<% @shelter.pets.each do |pet| %>
+  <h2><%= pet.name %></h2>
+  <%= image_tag pet.image, style: "max-height: 200px; max-width: 200px" %>
+  <p>Age: <%= pet.approximate_age %></p>
+  <p>Gender: <%= pet.sex %></p>
+<% end %>

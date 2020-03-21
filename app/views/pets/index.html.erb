@@ -1,0 +1,14 @@
+<h1>Pets</h1>
+
+<% @pets.each do |pet| %>
+<h2><%= pet.name %></h2>
+  <%= image_tag pet.image, style: "max-height: 200px; max-width: 200px" %>
+  <p>
+    Age: <%= pet.approximate_age%><br/>
+    Gender: <%= pet.sex %><br/>
+    Shelter: <%= pet.shelter.name %>
+  </p>
+<% end %>
+
+
+<!--file_field(:post, :image, accept: 'image/png,image/gif,image/jpeg')-->
