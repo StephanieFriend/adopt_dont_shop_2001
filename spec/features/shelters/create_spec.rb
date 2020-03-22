@@ -10,7 +10,7 @@ RSpec.describe "As a visitor", type: :feature do
 
     visit '/shelters'
 
-    click_link "New Shelter"
+    click_link 'New Shelter'
 
     expect(current_path).to eq('/shelters/new')
 
@@ -20,7 +20,7 @@ RSpec.describe "As a visitor", type: :feature do
     fill_in :state, with: beagle_rescue.state
     fill_in :zip, with: beagle_rescue.zip
 
-    click_button "Create Shelter"
+    click_button 'Create Shelter'
 
     expect(current_path).to eq('/shelters')
     expect(page).to have_content(beagle_rescue.name)
@@ -34,8 +34,8 @@ RSpec.describe "As a visitor", type: :feature do
 
     visit '/shelters'
 
-    click_link "New Shelter"
-    click_link "Shelters"
+    click_link 'New Shelter'
+    click_link 'Shelters'
 
     expect(current_path).to eq('/shelters')
   end
@@ -48,8 +48,8 @@ RSpec.describe "As a visitor", type: :feature do
 
     visit '/shelters'
 
-    click_link "New Shelter"
-    click_link "Pets"
+    click_link 'New Shelter'
+    click_link 'Pets'
 
     expect(current_path).to eq('/pets')
   end

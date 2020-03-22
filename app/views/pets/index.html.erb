@@ -2,7 +2,9 @@
 <a href="/shelters">Shelters</a><br/>
 </div>
 
+<header class='title'>
 <h1>Pets</h1>
+</header>
 
 <% @pets.each do |pet| %>
   <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>

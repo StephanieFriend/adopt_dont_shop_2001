@@ -9,8 +9,9 @@ RSpec.describe 'As a visitor', type: :feature do
                                   state: "CO",
                                   zip: "80223")
 
-        visit "/shelters/#{feline_shelter.id}"
+        visit '/shelters'
 
+        click_link 'Feline Rescue'
         click_link 'Edit'
 
         expect(current_path).to eq("/shelters/#{feline_shelter.id}/edit")
@@ -22,6 +23,25 @@ RSpec.describe 'As a visitor', type: :feature do
         expect(page).to have_content('Rocky Mountain Feline Rescue')
       end
     end
+    it "I can update a shelter via its index page" do
+      feline_shelter = Shelter.create(name: "Feline Rescue",
+                                      address: "2390 S Delaware St",
+                                      city: "Denver",
+                                      state: "CO",
+                                      zip: "80223")
+
+      visit '/shelters'
+
+      click_link 'Edit'
+
+      expect(current_path).to eq("/shelters/#{feline_shelter.id}/edit")
+
+      fill_in 'Name', with: 'Rocky Mountain Feline Rescue'
+      click_on 'Update Shelter'
+
+      expect(current_path).to eq("/shelters/#{feline_shelter.id}")
+      expect(page).to have_content('Rocky Mountain Feline Rescue')
+    end
     it "I can navigate to the shelters index page" do
       feline_shelter = Shelter.create(name: "Feline Rescue",
                                       address: "2390 S Delaware St",
@@ -29,10 +49,11 @@ RSpec.describe 'As a visitor', type: :feature do
                                       state: "CO",
                                       zip: "80223")
 
-      visit "/shelters/#{feline_shelter.id}"
+      visit '/shelters'
 
+      click_link 'Feline Rescue'
       click_link 'Edit'
-      click_link "Shelters"
+      click_link 'Shelters'
 
       expect(current_path).to eq('/shelters')
     end
@@ -44,10 +65,11 @@ RSpec.describe 'As a visitor', type: :feature do
                                       state: "CO",
                                       zip: "80223")
 
-      visit "/shelters/#{feline_shelter.id}"
+      visit '/shelters'
 
+      click_link 'Feline Rescue'
       click_link 'Edit'
-      click_link "Pets"
+      click_link 'Pets'
 
       expect(current_path).to eq('/pets')
     end

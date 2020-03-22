@@ -8,7 +8,9 @@ RSpec.describe "As a visitor", type: :feature do
                                     state: "CO",
                                     zip: "80120")
 
-    visit "/shelters/#{humane_society.id}"
+    visit '/shelters'
+
+    click_link 'Humane Society Of The South Platte Valley'
 
     expect(page).to have_content(humane_society.name)
 
@@ -16,7 +18,26 @@ RSpec.describe "As a visitor", type: :feature do
 
     expect(current_path).to eq('/shelters')
 
-    visit "/shelters"
+    visit '/shelters'
+
+    expect(page).to_not have_content(humane_society.name)
+  end
+  it "I can delete a shelter via its index page" do
+    humane_society = Shelter.create(name: "Humane Society Of The South Platte Valley",
+                                    address: "2129 W Chenango Ave",
+                                    city: "Littleton",
+                                    state: "CO",
+                                    zip: "80120")
+
+    visit '/shelters'
+
+    expect(page).to have_content(humane_society.name)
+
+    click_link 'Delete Shelter'
+
+    expect(current_path).to eq('/shelters')
+
+    visit '/shelters'
 
     expect(page).to_not have_content(humane_society.name)
   end

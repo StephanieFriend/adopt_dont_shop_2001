@@ -13,9 +13,10 @@ RSpec.describe "As a visitor", type: :feature do
                        sex: "Male",
                        shelter: dog_shelter)
 
-    visit "/shelters/#{dog_shelter.id}"
+    visit '/shelters'
 
-    click_link "Create Pet"
+    click_link 'MaxFund Dog Shelter'
+    click_link 'Create Pet'
 
     expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets/new")
 
@@ -25,7 +26,7 @@ RSpec.describe "As a visitor", type: :feature do
     fill_in :approximate_age, with: albus.approximate_age
     fill_in :sex, with: albus.sex
 
-    click_button "Create Pet"
+    click_button 'Create Pet'
 
     expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets")
     expect(page).to have_content(albus.name)
@@ -42,10 +43,11 @@ RSpec.describe "As a visitor", type: :feature do
                        sex: "Male",
                        shelter: dog_shelter)
 
-    visit "/shelters/#{dog_shelter.id}"
+    visit '/shelters'
 
-    click_link "Create Pet"
-    click_link "Pets"
+    click_link 'MaxFund Dog Shelter'
+    click_link 'Create Pet'
+    click_link 'Pets'
 
     expect(current_path).to eq('/pets')
   end
@@ -61,10 +63,11 @@ RSpec.describe "As a visitor", type: :feature do
                        sex: "Male",
                        shelter: dog_shelter)
 
-    visit "/shelters/#{dog_shelter.id}"
+    visit '/shelters'
 
-    click_link "Create Pet"
-    click_link "Shelters"
+    click_link 'MaxFund Dog Shelter'
+    click_link 'Create Pet'
+    click_link 'Shelters'
 
     expect(current_path).to eq('/shelters')
   end
