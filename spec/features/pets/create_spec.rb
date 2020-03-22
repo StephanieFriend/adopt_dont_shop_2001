@@ -27,4 +27,38 @@ RSpec.describe "As a visitor" do
     expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets")
     expect(page).to have_content(albus.name)
   end
+  it "I can navigate back to pets index page" do
+    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+                                 address: "1005 Galapago St",
+                                 city: "Denver",
+                                 state: "CO",
+                                 zip: "80204")
+    albus = Pet.create(image: 'download_20200106_121856.jpg',
+                       name: "Albus",
+                       approximate_age: 1,
+                       sex: "Male",
+                       shelter: dog_shelter)
+    visit "/shelters/#{dog_shelter.id}"
+    click_link "Create Pet"
+    click_link "Pets"
+
+    expect(current_path).to eq('/pets')
+  end
+  it "I can navigate back to shelters index page" do
+    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+                                 address: "1005 Galapago St",
+                                 city: "Denver",
+                                 state: "CO",
+                                 zip: "80204")
+    albus = Pet.create(image: 'download_20200106_121856.jpg',
+                       name: "Albus",
+                       approximate_age: 1,
+                       sex: "Male",
+                       shelter: dog_shelter)
+    visit "/shelters/#{dog_shelter.id}"
+    click_link "Create Pet"
+    click_link "Shelters"
+
+    expect(current_path).to eq('/shelters')
+  end
 end

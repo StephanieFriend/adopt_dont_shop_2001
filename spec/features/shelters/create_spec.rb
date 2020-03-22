@@ -21,7 +21,29 @@ RSpec.describe "As a visitor", type: :feature do
 
     expect(current_path).to eq('/shelters')
     expect(page).to have_content(beagle_rescue.name)
+  end
+  it "I can navigate to the shelters index page" do
+    beagle_rescue = Shelter.create(name: "Colorado Beagle Rescue",
+                                   address: "10940 S Parker Rd #161",
+                                   city: "Parker",
+                                   state: "CO",
+                                   zip: "80134")
+    visit '/shelters'
+    click_link "New Shelter"
+    click_link "Shelters"
 
+    expect(current_path).to eq('/shelters')
+  end
+  it "I can navigate to the pets index page" do
+    beagle_rescue = Shelter.create(name: "Colorado Beagle Rescue",
+                                   address: "10940 S Parker Rd #161",
+                                   city: "Parker",
+                                   state: "CO",
+                                   zip: "80134")
+    visit '/shelters'
+    click_link "New Shelter"
+    click_link "Pets"
+
+    expect(current_path).to eq('/pets')
   end
 end
-

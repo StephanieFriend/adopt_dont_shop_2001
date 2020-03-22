@@ -24,5 +24,4 @@ RSpec.describe "As a visitor" do
     visit "/pets"
     expect(page).to_not have_content(mr_hopper.name)
   end
-
 end
