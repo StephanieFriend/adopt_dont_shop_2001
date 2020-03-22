@@ -31,6 +31,7 @@ RSpec.describe "As a visitor", type: :feature do
                                  zip: "80204")
 
     visit '/shelters'
+
     click_link "Pets"
 
     expect(current_path).to eq('/pets')
@@ -66,6 +67,7 @@ RSpec.describe "As a visitor", type: :feature do
                                  zip: "80204")
 
     visit "/shelters/#{dog_shelter.id}"
+
     click_link "Shelters"
 
     expect(current_path).to eq('/shelters')
@@ -83,6 +85,7 @@ RSpec.describe "As a visitor", type: :feature do
                                  zip: "80204")
 
     visit "/shelters/#{dog_shelter.id}"
+
     click_link "Pets"
 
     expect(current_path).to eq('/pets')

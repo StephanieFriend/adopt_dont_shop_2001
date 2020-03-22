@@ -7,10 +7,13 @@ RSpec.describe "As a visitor", type: :feature do
                                     city: "Parker",
                                     state: "CO",
                                     zip: "80134")
+
     visit '/shelters'
+
     click_link "New Shelter"
 
     expect(current_path).to eq('/shelters/new')
+
     fill_in :name, with: beagle_rescue.name
     fill_in :address, with: beagle_rescue.address
     fill_in :city, with: beagle_rescue.city
@@ -28,7 +31,9 @@ RSpec.describe "As a visitor", type: :feature do
                                    city: "Parker",
                                    state: "CO",
                                    zip: "80134")
+
     visit '/shelters'
+
     click_link "New Shelter"
     click_link "Shelters"
 
@@ -40,7 +45,9 @@ RSpec.describe "As a visitor", type: :feature do
                                    city: "Parker",
                                    state: "CO",
                                    zip: "80134")
+
     visit '/shelters'
+
     click_link "New Shelter"
     click_link "Pets"
 

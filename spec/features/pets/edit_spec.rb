@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor" do
+RSpec.describe "As a visitor", type: :feature do
   it "I can update a pet when I visit their show page" do
     dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
                                  address: "1005 Galapago St",
@@ -12,7 +12,9 @@ RSpec.describe "As a visitor" do
                         approximate_age: 3,
                         sex: "Male",
                         shelter: dog_shelter)
+
     visit "/pets/#{samson.id}"
+
     click_link 'Edit'
 
     expect(current_path).to eq("/pets/#{samson.id}/edit")
@@ -35,7 +37,9 @@ RSpec.describe "As a visitor" do
                         approximate_age: 3,
                         sex: "Male",
                         shelter: dog_shelter)
+
     visit "/pets/#{samson.id}"
+
     click_link 'Edit'
     click_link "Shelters"
 
@@ -47,12 +51,14 @@ RSpec.describe "As a visitor" do
                                  city: "Denver",
                                  state: "CO",
                                  zip: "80204")
-    samson = Pet.create(image: 'boxerpic.jpg',
+    samson = Pet.create(image: 'https://www.dogster.com/wp-content/uploads/2019/03/Close-up-of-a-Boxer-with-tongue-out-happy.jpg',
                         name: "Samson",
                         approximate_age: 3,
                         sex: "Male",
                         shelter: dog_shelter)
+
     visit "/pets/#{samson.id}"
+
     click_link 'Edit'
     click_link "Pets"
 

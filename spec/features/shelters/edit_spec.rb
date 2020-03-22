@@ -30,6 +30,7 @@ RSpec.describe 'As a visitor', type: :feature do
                                       zip: "80223")
 
       visit "/shelters/#{feline_shelter.id}"
+
       click_link 'Edit'
       click_link "Shelters"
 
@@ -44,6 +45,7 @@ RSpec.describe 'As a visitor', type: :feature do
                                       zip: "80223")
 
       visit "/shelters/#{feline_shelter.id}"
+
       click_link 'Edit'
       click_link "Pets"
 
