@@ -15,7 +15,7 @@ class PetsController < ApplicationController
                       approximate_age: params[:approximate_age],
                       sex: params[:sex],
                       shelter: Shelter.find(params[:shelter_id]),
-                      adoptable: params[:adoptable]
+                      adoptable: "Y"
                   })
     pet.save
     redirect_to "/shelters/#{params[:shelter_id]}/pets"
