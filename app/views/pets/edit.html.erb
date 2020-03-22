@@ -1,6 +1,8 @@
+<div class='nav-section'>
 <a href="/shelters">Shelters</a><br/>
-<a href="/pets">Pets</a><br/><br/>
-
+<a href="/pets">Pets</a><br/>
+</div>
+<br/>
 <%= form_tag "/pets/#{@pet.id}", method: :patch do%>
   <%= label_tag :image %>
   <%= text_field_tag(:image, @pet.image) %>

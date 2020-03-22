@@ -1,0 +1,28 @@
+.welcome {
+    text-align: center;
+    font-size: 75px;
+    font-weight: bold;
+    color: indigo;
+    background-color: darkcyan;
+    padding: 20px;
+}
+
+.welcome_links {
+    text-align: left;
+    font-size: 35px;
+    color: teal;
+}
+
+.nav-section {
+    background-color: darkcyan;
+    padding: 10px 5px 9px 20px;
+    color: indigo;
+    font-weight: bold;
+}
+
+.nav-section_a {
+    background-color: darkcyan;
+    padding: 5px 5px 5px 20px;
+    color: indigo;
+    font-weight: bold;
+}
