@@ -1,0 +1,9 @@
+<a href="/shelters">Shelters</a><br/>
+<a href="/pets">Pets</a><br/><br/>
+
+<% @shelter.pets.each do |pet| %>
+  <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+  <%= image_tag pet.image, style: "max-height: 200px; max-width: 200px" %>
+  <p>Age: <%= pet.approximate_age %></p>
+  <p>Gender: <%= pet.sex %></p>
+<% end %>

@@ -10,6 +10,5 @@
   Gender: <%= @pet.sex %><br/>
   Available(Y/N): <%= @pet.adoptable %>
 </p>
-
 <a href="/pets/<%= @pet.id %>/edit">Edit</a><br/>
 <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>

@@ -12,7 +12,7 @@ RSpec.describe "As a visitor" do
                        approximate_age: 1,
                        sex: "Male",
                        shelter: dog_shelter)
-    visit "/shelters/#{dog_shelter.id}/pets"
+    visit "/shelters/#{dog_shelter.id}"
     click_link "Create Pet"
 
     expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets/new")
@@ -24,7 +24,7 @@ RSpec.describe "As a visitor" do
 
     click_button "Create Pet"
 
-    expect(current_path).to eq("/shelters/#{dog_shelter.id}")
+    expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets")
     expect(page).to have_content(albus.name)
   end
 end

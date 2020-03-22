@@ -10,4 +10,6 @@
     Gender: <%= pet.sex %><br/>
     Shelter: <a href="/shelters/<%= pet.shelter.id %>"><%= pet.shelter.name %></a>
   </p>
+  <a href="/pets/<%= pet.id %>/edit">Edit</a><br/>
+  <%= link_to 'Delete Pet', "/pets/#{pet.id}", method: :delete %>
 <% end %>

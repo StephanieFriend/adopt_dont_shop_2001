@@ -18,7 +18,7 @@ class PetsController < ApplicationController
                       adoptable: params[:adoptable]
                   })
     pet.save
-    redirect_to "/shelters/#{params[:shelter_id]}"
+    redirect_to "/shelters/#{params[:shelter_id]}/pets"
   end
 
   def show
