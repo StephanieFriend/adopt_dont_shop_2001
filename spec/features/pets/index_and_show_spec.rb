@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor", type: :feature do
   it "I can see all the pets with their information" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "My Dog Care",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -26,7 +26,7 @@ RSpec.describe "As a visitor", type: :feature do
     expect(page).to have_content(dog_shelter.name)
   end
   it "I can navigate to shelters index page" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "My Dog Care",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -49,7 +49,7 @@ RSpec.describe "As a visitor", type: :feature do
     expect(current_path).to eq('/shelters')
   end
   it "I can see a pets specific information" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "My Dog Care",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -67,16 +67,14 @@ RSpec.describe "As a visitor", type: :feature do
                         sex: "Male",
                         shelter: dog_shelter)
 
-    visit '/pets'
-
-    click_link 'Albus'
+    visit "/pets/#{albus.id}"
 
     expect(page).to have_content(albus.name)
     expect(page).to have_content(albus.description)
     expect(page).to_not have_content(samson.name)
   end
   it "I can navigate to pets index page" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "My Dog Care",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -94,15 +92,14 @@ RSpec.describe "As a visitor", type: :feature do
                         sex: "Male",
                         shelter: dog_shelter)
 
-    visit '/pets'
+    visit "/pets/#{albus.id}"
 
-    click_link 'Albus'
     click_link 'Pets'
 
     expect(current_path).to eq('/pets')
   end
   it "I can navigate to shelters index page" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "My Dog Care",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -120,9 +117,8 @@ RSpec.describe "As a visitor", type: :feature do
                         sex: "Male",
                         shelter: dog_shelter)
 
-    visit '/pets'
+    visit "/pets/#{albus.id}"
 
-    click_link 'Albus'
     click_link 'Shelters'
 
     expect(current_path).to eq('/shelters')

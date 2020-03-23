@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor", type: :feature do
   it "I can update a pet when I visit their show page" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "Doggie Day",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -28,7 +28,7 @@ RSpec.describe "As a visitor", type: :feature do
     expect(page).to have_content(samson.name)
   end
   it "I can edit a pet when I visit their index page" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "Doggie Day",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",
@@ -53,7 +53,7 @@ RSpec.describe "As a visitor", type: :feature do
     expect(page).to have_content(samson.name)
   end
   it "I can navigate to the shelters index page" do
-    dog_shelter = Shelter.create(name: "MaxFund Dog Shelter",
+    dog_shelter = Shelter.create(name: "Doggie Day",
                                  address: "1005 Galapago St",
                                  city: "Denver",
                                  state: "CO",

@@ -9,9 +9,8 @@ RSpec.describe 'As a visitor', type: :feature do
                                   state: "CO",
                                   zip: "80223")
 
-        visit '/shelters'
+        visit "/shelters/#{feline_shelter.id}"
 
-        click_link 'Feline Rescue'
         click_link 'Edit'
 
         expect(current_path).to eq("/shelters/#{feline_shelter.id}/edit")
@@ -49,9 +48,8 @@ RSpec.describe 'As a visitor', type: :feature do
                                       state: "CO",
                                       zip: "80223")
 
-      visit '/shelters'
+      visit "/shelters/#{feline_shelter.id}"
 
-      click_link 'Feline Rescue'
       click_link 'Edit'
       click_link 'Shelters'
 
@@ -65,9 +63,8 @@ RSpec.describe 'As a visitor', type: :feature do
                                       state: "CO",
                                       zip: "80223")
 
-      visit '/shelters'
+      visit "/shelters/#{feline_shelter.id}"
 
-      click_link 'Feline Rescue'
       click_link 'Edit'
       click_link 'Pets'
 

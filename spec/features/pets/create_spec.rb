@@ -13,9 +13,8 @@ RSpec.describe "As a visitor", type: :feature do
                        sex: "Male",
                        shelter: dog_shelter)
 
-    visit '/shelters'
+    visit "/shelters/#{dog_shelter.id}"
 
-    click_link 'MaxFund Dog Shelter'
     click_link 'Create Pet'
 
     expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets/new")
@@ -43,9 +42,8 @@ RSpec.describe "As a visitor", type: :feature do
                        sex: "Male",
                        shelter: dog_shelter)
 
-    visit '/shelters'
+    visit "/shelters/#{dog_shelter.id}"
 
-    click_link 'MaxFund Dog Shelter'
     click_link 'Create Pet'
     click_link 'Pets'
 
@@ -63,9 +61,8 @@ RSpec.describe "As a visitor", type: :feature do
                        sex: "Male",
                        shelter: dog_shelter)
 
-    visit '/shelters'
+    visit "/shelters/#{dog_shelter.id}"
 
-    click_link 'MaxFund Dog Shelter'
     click_link 'Create Pet'
     click_link 'Shelters'
 

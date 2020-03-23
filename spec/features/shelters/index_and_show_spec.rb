@@ -49,8 +49,7 @@ RSpec.describe "As a visitor", type: :feature do
                                  state: "CO",
                                  zip: "80204")
 
-    visit '/shelters'
-    click_link 'MaxFund Dog Shelter'
+    visit "/shelters/#{dog_shelter.id}"
 
     expect(page).to have_content(dog_shelter.name)
     expect(page).to have_content(dog_shelter.address)
@@ -84,9 +83,8 @@ RSpec.describe "As a visitor", type: :feature do
                         sex: "Male",
                         shelter: dog_shelter)
 
-    visit '/shelters'
+    visit "/shelters/#{dog_shelter.id}"
 
-    click_link 'MaxFund Dog Shelter'
     click_link "Shelter's Pets"
 
     expect(current_path).to eq("/shelters/#{dog_shelter.id}/pets")
@@ -108,9 +106,8 @@ RSpec.describe "As a visitor", type: :feature do
                                  state: "CO",
                                  zip: "80204")
 
-    visit '/shelters'
+    visit "/shelters/#{dog_shelter.id}"
 
-    click_link 'MaxFund Dog Shelter'
     click_link 'Shelters'
 
     expect(current_path).to eq('/shelters')
@@ -127,9 +124,8 @@ RSpec.describe "As a visitor", type: :feature do
                                  state: "CO",
                                  zip: "80204")
 
-    visit '/shelters'
+    visit "/shelters/#{dog_shelter.id}"
 
-    click_link 'MaxFund Dog Shelter'
     click_link 'Pets'
 
     expect(current_path).to eq('/pets')

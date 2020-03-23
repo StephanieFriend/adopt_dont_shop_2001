@@ -3,6 +3,8 @@
 <a href="/pets">Pets</a><br/>
 </div>
 
+<!--<h1>Shelter's Pets   <span style="font-size: 14pt">(<%#= @shelter.pets.pet_count %>)</span></h1>-->
+
 <% @shelter.pets.each do |pet| %>
   <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
   <%= image_tag pet.image, style: "max-height: 200px; max-width: 200px" %>

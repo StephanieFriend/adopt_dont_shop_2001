@@ -8,9 +8,7 @@ RSpec.describe "As a visitor", type: :feature do
                                     state: "CO",
                                     zip: "80120")
 
-    visit '/shelters'
-
-    click_link 'Humane Society Of The South Platte Valley'
+    visit "/shelters/#{humane_society.id}"
 
     expect(page).to have_content(humane_society.name)
 
